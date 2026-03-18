@@ -1,0 +1,4 @@
+Place the sim-efis.xml protocol configuration (available in the
+detailed configuration section) in your FlightGear
+Protocols directory, and launch FlightGear with
+fgfs --generic=socket,out,20,{MyIP},{MyPort},udp,sim-efis.

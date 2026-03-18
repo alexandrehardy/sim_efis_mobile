@@ -1,0 +1,421 @@
+<?xml version="1.0"?>
+
+<!-- See https://wiki.flightgear.org/Aircraft_properties_reference -->
+<PropertyList>
+ <comment>
+  <![CDATA[
+    Usage:
+  
+    fgfs --generic=socket,out,20,192.168.1.1,15000,udp,sim-efis
+    Substitute 192.168.1.1 and 15000 with the host and port
+    of the software listening for device link packets, and substitute
+    20 with the desired update rate (Hz)
+    On macosx this file should go to /Applications/Games/FlightGear.app/Contents/Resources/data/Protocol
+  ]]>
+ </comment>
+
+ <generic>
+
+  <output>
+   <binary_mode>false</binary_mode>
+   <line_separator></line_separator>
+   <var_separator>;</var_separator>
+
+
+   <!-- Basic state -->
+   <chunk>
+    <name>time</name>
+    <type>int</type>
+    <format>TIME:%d</format>
+    <node>/instrumentation/clock/indicated-sec</node>
+   </chunk>
+
+   <!--chunk>
+    <name>engines</name>
+    <type>int</type>
+    <format>NENG:1</format>
+    <node>/ai/models/count</node>
+   </chunk-->
+
+   <chunk>
+    <name>aircraft</name>
+    <type>string</type>
+    <format>ACFT:%s</format>
+    <!--node>/sim/aircraft</node-->
+    <node>/sim/description</node>
+   </chunk>
+
+   <chunk>
+    <name>longitude</name>
+    <type>float</type>
+    <format>LONG:%f</format>
+    <node>/instrumentation/gps/indicated-longitude-deg</node>
+   </chunk>
+
+   <chunk>
+    <name>latitude</name>
+    <type>float</type>
+    <format>LATD:%f</format>
+    <node>/instrumentation/gps/indicated-latitude-deg</node>
+   </chunk>
+
+   <!-- Instruments -->
+   <chunk>
+    <name>ias</name>
+    <type>float</type>
+    <format>KIAS:%f</format>
+    <node>/instrumentation/airspeed-indicator/indicated-speed-kt</node>
+   </chunk>
+
+   <chunk>
+    <name>vsi</name>
+    <type>float</type>
+    <format>VSIF:%f</format>
+    <node>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</node>
+   </chunk>
+
+   <chunk>
+    <name>slip</name>
+    <type>float</type>
+    <format>SLIP:%f</format>
+    <node>/instrumentation/slip-skid-ball/indicated-slip-skid</node>
+   </chunk>
+
+   <chunk>
+    <name>turn</name>
+    <type>float</type>
+    <format>TURN:%f</format>
+    <node>/instrumentation/turn-indicator/indicated-turn-rate</node>
+   </chunk>
+
+   <chunk>
+    <name>altimeter</name>
+    <type>float</type>
+    <format>ALTF:%f</format>
+    <node>/instrumentation/altimeter/indicated-altitude-ft</node>
+   </chunk>
+
+   <chunk>
+    <name>agl</name>
+    <type>float</type>
+    <format>AGLF:%f</format>
+    <node>/position/altitude-agl-ft</node>
+   </chunk>
+
+   <chunk>
+    <name>heading</name>
+    <type>float</type>
+    <format>HEAD:%f</format>
+    <node>/instrumentation/heading-indicator/indicated-heading-deg</node>
+   </chunk>
+
+   <chunk>
+    <name>true_heading</name>
+    <type>float</type>
+    <format>HDTR:%f</format>
+    <node>/orientation/true-heading-deg</node>
+   </chunk>
+
+   <chunk>
+    <name>roll</name>
+    <type>float</type>
+    <format>ROLL:%f</format>
+    <node>/instrumentation/attitude-indicator/indicated-roll-deg</node>
+   </chunk>
+
+   <chunk>
+    <name>pitch</name>
+    <type>float</type>
+    <format>PITC:%f</format>
+    <node>/instrumentation/attitude-indicator/indicated-pitch-deg</node>
+   </chunk>
+
+   <chunk>
+    <name>fuel</name>
+    <type>float</type>
+    <format>FUEL:%f</format>
+    <node>/consumables/fuel/total-fuel-lbs</node>
+   </chunk>
+
+   <chunk>
+    <name>gear_l</name>
+    <type>float</type>
+    <format>LGLT:%f</format>
+    <node>/controls/gear/gear-down</node>
+   </chunk>
+
+   <chunk>
+    <name>gear_r</name>
+    <type>float</type>
+    <format>LGRT:%f</format>
+    <node>/controls/gear/gear-down</node>
+   </chunk>
+
+   <chunk>
+    <name>gear_c</name>
+    <type>float</type>
+    <format>LGCT:%f</format>
+    <node>/controls/gear/gear-down</node>
+   </chunk>
+
+   <chunk>
+    <name>rpm1</name>
+    <type>float</type>
+    <format>RPMS:0:%f</format>
+    <node>/engines/engine[0]/rpm</node>
+   </chunk>
+
+   <chunk>
+    <name>rpm2</name>
+    <type>float</type>
+    <format>RPMS:1:%f</format>
+    <node>/engines/engine[1]/rpm</node>
+   </chunk>
+
+   <chunk>
+    <name>rpm3</name>
+    <type>float</type>
+    <format>RPMS:2:%f</format>
+    <node>/engines/engine[2]/rpm</node>
+   </chunk>
+
+   <chunk>
+    <name>rpm4</name>
+    <type>float</type>
+    <format>RPMS:3:%f</format>
+    <node>/engines/engine[3]/rpm</node>
+   </chunk>
+
+   <chunk>
+    <name>manifold1</name>
+    <type>float</type>
+    <format>MANP:0:%f</format>
+    <node>/engines/engine[0]/mp-osi</node>
+   </chunk>
+
+   <chunk>
+    <name>manifold2</name>
+    <type>float</type>
+    <format>MANP:1:%f</format>
+    <node>/engines/engine[1]/mp-osi</node>
+   </chunk>
+
+   <chunk>
+    <name>manifold3</name>
+    <type>float</type>
+    <format>MANP:2:%f</format>
+    <node>/engines/engine[2]/mp-osi</node>
+   </chunk>
+
+   <chunk>
+    <name>manifold4</name>
+    <type>float</type>
+    <format>MANP:3:%f</format>
+    <node>/engines/engine[3]/mp-osi</node>
+   </chunk>
+
+   <chunk>
+    <name>temp_oil_out1</name>
+    <type>float</type>
+    <format>OILF:0:%f</format>
+    <node>/engines/engine[0]/oil-temperature-degf</node>
+   </chunk>
+
+   <chunk>
+    <name>temp_oil_out2</name>
+    <type>float</type>
+    <format>OILF:1:%f</format>
+    <node>/engines/engine[1]/oil-temperature-degf</node>
+   </chunk>
+
+   <chunk>
+    <name>temp_oil_out3</name>
+    <type>float</type>
+    <format>OILF:2:%f</format>
+    <node>/engines/engine[2]/oil-temperature-degf</node>
+   </chunk>
+
+   <chunk>
+    <name>temp_oil_out4</name>
+    <type>float</type>
+    <format>OILF:3:%f</format>
+    <node>/engines/engine[3]/oil-temperature-degf</node>
+   </chunk>
+
+   <chunk>
+    <name>flaps</name>
+    <type>float</type>
+    <format>FLAP:%f</format>
+    <node>/controls/flight/flaps</node>
+   </chunk>
+
+   <chunk>
+    <name>temp_oil_out1</name>
+    <type>float</type>
+    <format>OILF:0:%f</format>
+    <node>/engines/engine[0]/oil-temperature-degf</node>
+   </chunk>
+
+   <chunk>
+    <name>temp_oil_out2</name>
+    <type>float</type>
+    <format>OILF:1:%f</format>
+    <node>/engines/engine[1]/oil-temperature-degf</node>
+   </chunk>
+
+   <chunk>
+    <name>temp_oil_out3</name>
+    <type>float</type>
+    <format>OILF:2:%f</format>
+    <node>/engines/engine[2]/oil-temperature-degf</node>
+   </chunk>
+
+   <chunk>
+    <name>temp_oil_out4</name>
+    <type>float</type>
+    <format>OILF:3:%f</format>
+    <node>/engines/engine[3]/oil-temperature-degf</node>
+   </chunk>
+
+   <chunk>
+    <name>cht1</name>
+    <type>float</type>
+    <format>CHTF:0:%f</format>
+    <node>/engines/engine[0]/cht-degf</node>
+   </chunk>
+
+   <chunk>
+    <name>cht2</name>
+    <type>float</type>
+    <format>CHTF:1:%f</format>
+    <node>/engines/engine[1]/cht-degf</node>
+   </chunk>
+
+   <chunk>
+    <name>cht3</name>
+    <type>float</type>
+    <format>CHTF:2:%f</format>
+    <node>/engines/engine[2]/cht-degf</node>
+   </chunk>
+
+   <chunk>
+    <name>cht4</name>
+    <type>float</type>
+    <format>CHTF:3:%f</format>
+    <node>/engines/engine[3]/cht-degf</node>
+   </chunk>
+
+   <chunk>
+    <name>egt1</name>
+    <type>float</type>
+    <format>EGTF:0:%f</format>
+    <node>/engines/engine[0]/egt-degf</node>
+   </chunk>
+
+   <chunk>
+    <name>egt2</name>
+    <type>float</type>
+    <format>EGTF:1:%f</format>
+    <node>/engines/engine[1]/egt-degf</node>
+   </chunk>
+
+   <chunk>
+    <name>egt3</name>
+    <type>float</type>
+    <format>EGTF:2:%f</format>
+    <node>/engines/engine[2]/egt-degf</node>
+   </chunk>
+
+   <chunk>
+    <name>egt4</name>
+    <type>float</type>
+    <format>EGTF:3:%f</format>
+    <node>/engines/engine[3]/egt-degf</node>
+   </chunk>
+
+   <chunk>
+    <name>oil_pressure1</name>
+    <type>float</type>
+    <format>OILP:0:%f</format>
+    <node>/engines/engine[0]/oil-pressure-psi</node>
+   </chunk>
+
+   <chunk>
+    <name>oil_pressure2</name>
+    <type>float</type>
+    <format>OILP:1:%f</format>
+    <node>/engines/engine[1]/oil-pressure-psi</node>
+   </chunk>
+
+   <chunk>
+    <name>oil_pressure3</name>
+    <type>float</type>
+    <format>OILP:2:%f</format>
+    <node>/engines/engine[2]/oil-pressure-psi</node>
+   </chunk>
+
+   <chunk>
+    <name>oil_pressure4</name>
+    <type>float</type>
+    <format>OILP:3:%f</format>
+    <node>/engines/engine[3]/oil-pressure-psi</node>
+   </chunk>
+
+   <chunk>
+    <name>fuel_flow1</name>
+    <type>float</type>
+    <format>FFGP:0:%f</format>
+    <node>/engines/engine[0]/fuel-flow-gph</node>
+   </chunk>
+
+   <chunk>
+    <name>fuel_flow2</name>
+    <type>float</type>
+    <format>FFGP:1:%f</format>
+    <node>/engines/engine[1]/fuel-flow-gph</node>
+   </chunk>
+
+   <chunk>
+    <name>fuel_flow3</name>
+    <type>float</type>
+    <format>FFGP:2:%f</format>
+    <node>/engines/engine[2]/fuel-flow-gph</node>
+   </chunk>
+
+   <chunk>
+    <name>fuel_flow4</name>
+    <type>float</type>
+    <format>FFGP:3:%f</format>
+    <node>/engines/engine[3]/fuel-flow-gph</node>
+   </chunk>
+
+   <chunk>
+    <name>trim_aileron</name>
+    <type>float</type>
+    <format>TRMA:%f</format>
+    <node>/controls/flight/aileron-trim</node>
+   </chunk>
+
+   <chunk>
+    <name>trim_elevator</name>
+    <type>float</type>
+    <format>TRME:%f</format>
+    <node>/controls/flight/elevator-trim</node>
+   </chunk>
+
+   <chunk>
+    <name>trim_rudder</name>
+    <type>float</type>
+    <format>TRMR:%f</format>
+    <node>/controls/flight/rudder-trim</node>
+   </chunk>
+  </output>
+
+  <input>
+   <line_separator>newline</line_separator>
+   <var_separator>,</var_separator>
+  </input>
+
+ </generic>
+
+</PropertyList>

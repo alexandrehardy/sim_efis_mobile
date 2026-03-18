@@ -1,0 +1,2 @@
+You can use any settings with configuration, 
+no network connection is used.

@@ -1,0 +1,5 @@
+Please enter the IP of the machine to connect to. 
+If you specify ".0" as the last component of the IP, 
+then the IP range in that subnet will be scanned. 
+For example 192.168.1.0 will cause the subnet 192.168.1.0/24 
+to be scanned.
